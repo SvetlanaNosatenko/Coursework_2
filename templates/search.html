@@ -27,9 +27,9 @@
   <main class="container">
     <div class="search">
       <form action="/search" class="search__form">
-        <input type="search" name="input_text" class="search__input">
+        <input type="search" name="s" class="search__input">
       </form>
-      <p class="search__results">Найдено постов: {{ сount_posts }} </p>
+      <p class="search__results">Найдено постов: {{ posts | length }} </p>
     </div>
     <section class="items">
       {% for post in posts %}
