@@ -26,9 +26,9 @@
   <main class="container">
     <section class="items">
       <div class="items__item item item--post">
+        {% for post in posts %}
         <div class="item__top">
-          <a href="/user-feed.html" class="item__head">
-             {% for post in posts %}
+          <a href="/posts/{{ post.pk }}" class="item__head">
             <div class="item__ava-wrap">
               <img src="{{ post.poster_avatar }}" alt="" class="item__ava" width="47">
             </div>

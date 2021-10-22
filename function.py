@@ -1,15 +1,13 @@
 import json
-from flask import request
-
 
 def open_json():
     """Чтение списков постов и комментариев.
     Расчет количества комментариев к каждому посту"""
 
-    with open('data.json', encoding='utf-8') as f:
+    with open('json/data.json', encoding='utf-8') as f:
         posts = json.load(f)
 
-    with open('comments.json', encoding='utf-8') as f:
+    with open('json/comments.json', encoding='utf-8') as f:
         comments = json.load(f)
 
     dict_comments = {}
@@ -46,13 +44,12 @@ def one_post(postid: int):
     return comments_id, post_id, count_comments
 
 
-def found_post():
+def found_post(s):
     """Поиск по вхождению ключевого слово в текст поста"""
     posts, comments = open_json()
-    input_text = str(request.args.get('input_text'))
     response = []
     for post in posts:
-        if input_text.lower() in post["content"].lower():
+        if s.lower() in post["content"].lower():
             response.append(post)
     return response
 

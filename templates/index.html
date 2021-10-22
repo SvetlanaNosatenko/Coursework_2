@@ -27,14 +27,14 @@
       {% for post in posts %}
       <div class="items__item item">
         <div class="item__top">
-          <a href="/users/{{ post.poster_name }}" class="item__head">
+          <a href="/posts/{{ post.pk }}" class="item__head">
             <div class="item__ava-wrap">
               <img src="{{ post.poster_avatar }}" alt="" class="item__ava" width="47" border-radius="50%">
             </div>
             <span class="item__username">{{ post.poster_name }}</span>
           </a>
         </div>
-        <a href="/post.html" class="item__post-link">
+        <a href="/posts/{{ post.pk }}" class="item__post-link">
           <img src="{{ post.pic }}" alt="" width="348" class="item__post-img">
         </a>
         <p class="item__descr">{{ post.content[:50] }}...</p>
