@@ -27,9 +27,9 @@ def post_id(postid: int):
 @app.route('/search/')
 def post_text():
     """Поиск по вхождению ключевого слово в текст поста"""
-    s = str(request.args.get('s'))
+    s = request.args.get('s')
     response = found_post(s)
-    if not found_post(s):
+    if not response:
         return "Пустой запрос", 404
     return render_template("search.html", posts=response), 200
 
